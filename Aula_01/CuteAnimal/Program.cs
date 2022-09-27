@@ -8,13 +8,13 @@ namespace CuteAnimal
         {
             Cat c1 = new Cat("Beep", 3, Feed.Satisfied, Mood.IgnoringYou);
             Cat c2 = new Cat("Clap", 2, Feed.Hungry, Mood.Grumpy);
-            Cat c3 = new Cat ("R1");
-            Cat c4 = new Cat ("R2");
+            Cat c3 = new Cat ("Random 1");
+            Cat c4 = new Cat ("Random2");
 
-            Console.WriteLine("Cat 1: " + c1.GetAll());
-            Console.WriteLine("Cat 2: " + c2.GetAll());
-            Console.WriteLine("Cat 3 (Random): " + c3.GetAll());
-            Console.WriteLine("Cat 4 (Random): " + c4.GetAll());
+            Console.WriteLine(c1.ToString());
+            Console.WriteLine(c2.ToString());
+            Console.WriteLine(c3.ToString());
+            Console.WriteLine(c4.ToString());
         }
     }
 }

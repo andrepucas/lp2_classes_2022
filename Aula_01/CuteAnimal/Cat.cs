@@ -4,10 +4,16 @@ namespace CuteAnimal
 {
     public class Cat
     {
-        private string  _name;
-        private int     _age;
-        private Feed    _feedStatus;
-        private Mood    _moodStatus;
+        // private string  _name;
+        // private int     _age;
+        // private Feed    _feedStatus;
+        // private Mood    _moodStatus;
+
+        public string   Name {get;}
+        public int      Age {get;}
+        public Feed     FeedStatus {get;}
+        public Mood     MoodStatus {get;}
+
         private Random  _random;
 
         private Cat()
@@ -17,23 +23,29 @@ namespace CuteAnimal
 
         public Cat(string name, int age, Feed feedStatus, Mood moodStatus) : this()
         {
-            _name = name;
-            _age = age;
-            _feedStatus = feedStatus;
-            _moodStatus = moodStatus;
+            Name = name;
+            Age = age;
+            FeedStatus = feedStatus;
+            MoodStatus = moodStatus;
         }
 
         public Cat(string name) : this()
         {
-            _name = name;
-            _age = _random.Next(25);
-            _feedStatus = (Feed)_random.Next(Enum.GetNames(typeof(Feed)).Length);
-            _moodStatus = (Mood)_random.Next(Enum.GetNames(typeof(Mood)).Length);
+            Name = name;
+            Age = _random.Next(25);
+            FeedStatus = (Feed)_random.Next(Enum.GetNames(typeof(Feed)).Length);
+            MoodStatus = (Mood)_random.Next(Enum.GetNames(typeof(Mood)).Length);
         }
 
-        public string GetName() => _name;
+        public override string ToString()
+        {
+            return "Name:" + Name + ", Age: " + Age + ", Currently: " 
+                + FeedStatus + " and " + MoodStatus;
+        }
 
-        public (string, int, Feed, Mood) GetAll() 
-            => (_name, _age, _feedStatus, _moodStatus);
+        // public string GetName() => _name;
+
+        // public (string, int, Feed, Mood) GetAll() 
+        //     => (_name, _age, _feedStatus, _moodStatus);
     }
 }
