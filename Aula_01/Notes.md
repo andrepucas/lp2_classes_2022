@@ -16,4 +16,11 @@ Enum Color {Black, White, Orange, Striped}
 
 **Apenas para variáveis da classe, independentes da instância.**
 
-Numa classe 'Cat', a variável 'NumberOfCats' seria igual para todas as instâncias, portanto faz sentido ser uma variável da classe - static.
+Numa classe 'Cat', a variável 'NumberOfCats' seria igual para todas as instâncias,
+portanto faz sentido ser uma variável da classe - static.
+
+Métodos static são chamados diretamente na classe, em vez de na instância.
+Exemplo: Console.WriteLine, Debug.Log.
+
+São apenas úteis se não dependerem do estado da instância e se nunca for preciso
+alterar diretamente.

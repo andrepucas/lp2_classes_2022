@@ -4,17 +4,14 @@ namespace CuteAnimal
 {
     public class Cat
     {
-        // private string  _name;
-        // private int     _age;
-        // private Feed    _feedStatus;
-        // private Mood    _moodStatus;
+        public static int maxAge = 40;
 
         public string   Name {get;}
         public int      Age {get;}
         public Feed     FeedStatus {get;}
         public Mood     MoodStatus {get;}
 
-        private Random  _random;
+        private Random _random;
 
         private Cat()
         {
@@ -32,7 +29,7 @@ namespace CuteAnimal
         public Cat(string name) : this()
         {
             Name = name;
-            Age = _random.Next(25);
+            Age = _random.Next(maxAge);
             FeedStatus = (Feed)_random.Next(Enum.GetNames(typeof(Feed)).Length);
             MoodStatus = (Mood)_random.Next(Enum.GetNames(typeof(Mood)).Length);
         }
@@ -42,10 +39,5 @@ namespace CuteAnimal
             return "Name:" + Name + ", Age: " + Age + ", Currently: " 
                 + FeedStatus + " and " + MoodStatus;
         }
-
-        // public string GetName() => _name;
-
-        // public (string, int, Feed, Mood) GetAll() 
-        //     => (_name, _age, _feedStatus, _moodStatus);
     }
 }

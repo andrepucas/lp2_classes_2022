@@ -15,6 +15,7 @@ namespace CuteAnimal
             Console.WriteLine(c2.ToString());
             Console.WriteLine(c3.ToString());
             Console.WriteLine(c4.ToString());
+            Console.WriteLine("\nOldest possible age for a cat: " + Cat.maxAge);
         }
     }
 }
