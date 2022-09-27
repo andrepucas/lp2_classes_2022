@@ -1,10 +1,13 @@
+using System;
+
 namespace CuteAnimal
 {
+    [Flags]
     public enum Mood
     {
-        Happy,
-        Grumpy,
-        IgnoringYou,
-        HyperActive
+        Happy       = 1 << 0,
+        Grumpy      = 1 << 1,
+        IgnoringYou = 1 << 2,
+        HyperActive = 1 << 3
     }
 }
