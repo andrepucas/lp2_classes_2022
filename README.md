@@ -1,4 +1,4 @@
-# Classroom Notes
+# Aulas de LP2 (2022)
 
 + [Aula 1 (27/09)](#aula-1-2709)
 + [Aula 2 (04/10)](#aula-2-0410)
@@ -7,11 +7,12 @@
 
 ## Aula 1 (27/09)
 
-### Exercise 2 - Variáveis e Métodos
+### Exercício 2 - Variáveis e Métodos
 
 #### 2.1. Possíveis variáveis e métodos para a classe Cat
 
-> **Vars:** Name, Age, Color, Weight, Owner | **Métodos:** SetName(), GetAge(), GetColor(), SetOwner().
+> **Vars:** Name, Age, Color, Weight, Owner  
+> **Métodos:** SetName(), GetAge(), GetColor(), SetOwner().
 
 #### 2.2. Uma das variáveis deve ser enum
 
@@ -30,9 +31,13 @@ Exemplo: Console.WriteLine, Debug.Log.
 São apenas úteis se não dependerem do estado da instância e se nunca for preciso
 alterar diretamente.
 
+[Back](#aulas-de-lp2-2022)
+
+---
+
 ## Aula 2 (04/10)
 
-### Exercise 1 - Classes
+### Exercício 1 - Classes
 
 #### 1.1. Classes são tipos de referencia
 
@@ -69,3 +74,56 @@ alterar diretamente.
 #### 1.9. De onde se pode aceder a algo internal?
 
 > Dentro do mesmo projeto.
+
+### Exercício 2 - Revisão de termos (CatFromLastWeek)
+
+#### Classes
+
+> Cat, Program, Feed, Mood.
+
+#### Instâncias criadas
+
+> cat1 e cat2, de Cat.
+
+#### Métodos
+
+> Cat: RandomMoods(), Eat(), Sleep(), Play(), Meow().  
+> Program: Main(), ShowCat().
+
+#### Construtores
+
+> Cat(), Cat(:all params:), Cat(string name).
+
+#### Variáveis de Instância
+
+> energy, feedStatus, random, possibleFeedStatus, possibleMoods.
+
+#### Variáveis de Classe
+
+> N/A.
+
+#### Propriedades da Classe
+
+> MaxEnergy, EnergyGainAfterSleep, EnergyLossAfterPlay, EnergyLossAfterMeow.
+
+#### Propriedades de Instância
+
+> Name, Energy, FeedStatus, MoodStatus.
+
+#### Variáveis de Suporte
+
+> energy, feedStatus.
+
+#### Variáveis Locais
+
+> numMoods, i... O que estiver dentro de métodos.
+
+#### Overloading
+
+> No construtor de Cat.
+
+#### Encapsulação
+
+> ion know.
+
+[Back](#aulas-de-lp2-2022)
