@@ -9,14 +9,14 @@
 
 ### Exercício 2 - Variáveis e Métodos
 
-#### 2.1. Possíveis variáveis e métodos para a classe Cat
+1. Possíveis variáveis e métodos para a classe Cat
 
-> **Vars:** Name, Age, Color, Weight, Owner  
-> **Métodos:** SetName(), GetAge(), GetColor(), SetOwner().
+    > **Vars:** Name, Age, Color, Weight, Owner  
+    > **Métodos:** SetName(), GetAge(), GetColor(), SetOwner().
 
-#### 2.2. Uma das variáveis deve ser enum
+2. Uma das variáveis deve ser enum
 
-> Enum Color {Black, White, Orange, Striped}
+    > Enum Color {Black, White, Orange, Striped}
 
 ### Usar Static
 
@@ -39,91 +39,138 @@ alterar diretamente.
 
 ### Exercício 1 - Classes
 
-#### 1.1. Classes são tipos de referencia
+1. Classes são tipos de referencia
 
-> True.
+    > True.
 
-#### 1.2. Classes vs Instâncias
+2. Classes vs Instâncias
 
-> 'Classes' definem o que algo pode fazer e guardar, enquanto uma 'instância' é um objeto especifico que contém o seu próprio estado.
+    > 'Classes' definem o que algo pode fazer e guardar, enquanto uma 'instância' é um objeto especifico que contém o seu próprio estado.
 
-#### 1.3. Quatro tipos de membros que podem pertencer a uma classe
+3. Quatro tipos de membros que podem pertencer a uma classe
 
-> Variáveis, Propriedades, Métodos, Construtor.
+    > Variáveis, Propriedades, Métodos, Construtor.
 
-#### 1.4. Algo static é partilhado por todas as instâncias desse tipo?
+4. Algo static é partilhado por todas as instâncias desse tipo?
 
-> True.
+    > True.
 
-#### 1.5. Como se chamam os métodos que inicializam uma classe?
+5. Como se chamam os métodos que inicializam uma classe?
 
-> Métodos construtores.
+    > Métodos construtores.
 
-#### 1.6. De onde se pode aceder a algo private?
+6. De onde se pode aceder a algo private?
 
-> Apenas dentro da classe.
+    > Apenas dentro da classe.
 
-#### 1.7. De onde se pode aceder a algo protected?
+7. De onde se pode aceder a algo protected?
 
-> Dentro da classe e classes derivadas (subclasses).
+    > Dentro da classe e classes derivadas (subclasses).
 
-#### 1.8. De onde se pode aceder a algo public?
+8. De onde se pode aceder a algo public?
 
-> De qualquer sítio.
+    > De qualquer sítio.
 
-#### 1.9. De onde se pode aceder a algo internal?
+9. De onde se pode aceder a algo internal?
 
-> Dentro do mesmo projeto.
+    > Dentro do mesmo projeto.
 
 ### Exercício 2 - Revisão de termos (CatFromLastWeek)
 
-#### Classes
+1. Classes
 
-> Cat, Program, Feed, Mood.
+    > Cat, Program.
 
-#### Instâncias criadas
+2. Instâncias criadas
 
-> cat1 e cat2, de Cat.
+    > cat1 e cat2, de Cat.
 
-#### Métodos
+3. Métodos
 
-> Cat: RandomMoods(), Eat(), Sleep(), Play(), Meow().  
-> Program: Main(), ShowCat().
+    > Cat: RandomMoods(), Eat(), Sleep(), Play(), Meow().  
+    > Program: Main(), ShowCat().
 
-#### Construtores
+4. Construtores
 
-> Cat(), Cat(:all params:), Cat(string name).
+    > Cat(), Cat(:all params:), Cat(string name).
 
-#### Variáveis de Instância
+5. Variáveis de Instância
 
-> energy, feedStatus, random, possibleFeedStatus, possibleMoods.
+    > energy, feedStatus, random, possibleFeedStatus, possibleMoods.
 
-#### Variáveis de Classe
+6. Variáveis de Classe
 
-> N/A.
+    > N/A.
 
-#### Propriedades da Classe
+7. Propriedades da Classe
 
-> MaxEnergy, EnergyGainAfterSleep, EnergyLossAfterPlay, EnergyLossAfterMeow.
+    > MaxEnergy, EnergyGainAfterSleep, EnergyLossAfterPlay, EnergyLossAfterMeow.
 
-#### Propriedades de Instância
+8. Propriedades de Instância
 
-> Name, Energy, FeedStatus, MoodStatus.
+    > Name, Energy, FeedStatus, MoodStatus.
 
-#### Variáveis de Suporte
+9. Variáveis de Suporte
 
-> energy, feedStatus.
+    > energy, feedStatus.
 
-#### Variáveis Locais
+10. Variáveis Locais
 
-> numMoods, i... O que estiver dentro de métodos.
+    > moods, numMoods, i... O que estiver dentro de métodos.
 
-#### Overloading
+11. Overloading
 
-> No construtor de Cat.
+    > Nos construtores de Cat.
 
-#### Encapsulação
+12. Encapsulação
 
-> ion know.
+    > Propriedades publicas com private set, readonly por outras classes.
+
+> ### Instanciar com propriedades (Sem construtor)
+>
+> Ex: `Player p1 = new Player{Health = 100, Armor = 50}`
+
+### Exercício 5 - Structs e Imutabilidade
+
+1. Structs são tipos de valor ou referência?
+
+    > Valor.
+
+2. É fácil/recomendado alterar uma classe para struct ou vice-versa a meio de um programa?
+
+    > Não.
+
+3. Structs são sempre imutáveis?
+
+    > Não.
+4. Classes nunca são imutáveis?
+
+    > Não.
+
+5. Todos os tipos pré definidos no C# são structs?
+
+    > Não.
+
+### Exercício 6 - Keywords out e ref
+
+1. Parâmetro `out` indica que foi passada uma referencia ao valor, em vez de uma cópia?
+
+    > Sim.
+
+2. Parâmetro `ref` indica que foi passada uma referencia ao valor, em vez de uma cópia?
+
+    > Sim.
+
+3. Parâmetro `out` tem de ser inicializado dentro do método?
+
+    > Sim.
+
+4. Parâmetro `ref` tem de ser inicializado dentro do método?
+
+    > Não.
+
+> ### UML - Cardinalidade
+>
+> Em associação, agregação e composição, o lado da classe que tem (de onde sai a seta), normalmente é sempre 1.
 
 [Back](#aulas-de-lp2-2022)
