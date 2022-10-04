@@ -18,17 +18,17 @@
 
     > Enum Color {Black, White, Orange, Striped}
 
-### Usar Static
-
-**Apenas para variáveis da classe, independentes da instância.**
-
-Numa classe 'Cat', a variável 'NumberOfCats' seria igual para todas as instâncias,
+> ### Usar Static
+>
+> **Apenas para variáveis da classe, independentes da instância.**
+>
+> Numa classe 'Cat', a variável 'NumberOfCats' seria igual para todas as instâncias,
 portanto faz sentido ser uma variável da classe - static.
-
-Métodos static são chamados diretamente na classe, em vez de na instância.
+>
+> Métodos static são chamados diretamente na classe, em vez de na instância.
 Exemplo: Console.WriteLine, Debug.Log.
-
-São apenas úteis se não dependerem do estado da instância e se nunca for preciso
+>
+> São apenas úteis se não dependerem do estado da instância e se nunca for preciso
 alterar diretamente.
 
 [Back](#aulas-de-lp2-2022)
@@ -128,7 +128,7 @@ alterar diretamente.
 
 > ### Instanciar com propriedades (Sem construtor)
 >
-> Ex: `Player p1 = new Player{Health = 100, Armor = 50}`
+> `Player p1 = new Player{Health = 100, Armor = 50}`
 
 ### Exercício 5 - Structs e Imutabilidade
 
@@ -172,5 +172,69 @@ alterar diretamente.
 > ### UML - Cardinalidade
 >
 > Em associação, agregação e composição, o lado da classe que tem (de onde sai a seta), normalmente é sempre 1.
+
+### Exercício 8 - Herança
+
+1. Uma classe derivada adiciona funcionalidade a uma class base?
+
+    > Sim, é para isso que serve.
+
+2. Todos os membros da superclasse são acessíveis pela subclasse?
+
+    > Só se não forem private.+-
+
+3. Structs suportam herança?
+
+    > Não.
+
+4. Todas as classes derivam de object?
+
+    > Sim.
+
+5. Uma classe pode ser subclasse E superclasse?
+
+    > Sim.
+
+6. É possível evitar que uma classe seja usada como classe base?
+
+    > Sim, com a keyword `sealed` ou se for uma classe `static`.
+
+### Exercício 11 - Polimorfismo
+
+1. Polimorfismo permite que subclasses ofereçam implementações alternativas de métodos da classe base.
+
+    > Sim.
+
+2. Keyword `override` indica que um método na subclasse é uma extensão/sobreposição de um método na classe base.
+
+    > Sim.
+
+3. Keyword `new` indica que um método na subclasse é uma extensão/sobreposição de um método na classe base.
+
+    > Não.
+
+4. Métodos `abstract` podem existir em classes não-`abstract`.
+
+    > Não.
+
+5. Métodos não-`abstract` podem existir em classes `abstract`.
+
+    > Sim.
+
+6. Subclasses podem sobrepor métodos `virtual` da superclasse.
+
+    > Sim.
+
+7. Subclasses podem sobrepor métodos `abstract` da superclasse.
+
+    > Sim, não só podem como são obrigados.
+
+8. Numa subclasse é possível dar `override` de um método não-`virtual` e não-`abstract` da superclasse.
+
+    > Não.
+
+9. O método `ToString()` de object não pode ser sobreposto.
+
+    > Não, até é recomendado ser sobreposto.
 
 [Back](#aulas-de-lp2-2022)
