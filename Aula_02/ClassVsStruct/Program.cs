@@ -19,13 +19,13 @@ namespace ClassVsStruct
             // ps1.Health = 75;
             // ps1.Armor = 25;
 
-            DoubleHealth(pc1, ps1);
+            DoubleHealth(ref pc1, ref ps1);
 
             Console.WriteLine("\n\t --- VALUES CHANGED ---");
             ShowStats(pc1, pc2, ps1, ps2);
         }
 
-        private static void DoubleHealth(PlayerClass pc, PlayerStruct ps)
+        private static void DoubleHealth(ref PlayerClass pc, ref PlayerStruct ps)
         {
             pc.Health *= 2;
             ps.Health *= 2;
