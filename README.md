@@ -1,7 +1,5 @@
 # Aulas de LP2 (2022)
 
-> ## Cheats
->
 > `dotnet new sln`  
 > `dotnet new console-classic --nrt=false --langVersion 8.0 --name NOME`  
 > `dotnet sln add NOME`  
