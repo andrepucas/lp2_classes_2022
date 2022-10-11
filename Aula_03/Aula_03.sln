@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityManager3", "CityManager
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityManager4", "CityManager4\CityManager4.csproj", "{BBD724ED-2A22-46A1-BF93-8F6B290811CC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HashBuildings", "HashBuildings\HashBuildings.csproj", "{AA0C9CC1-80BC-409A-B670-7492909DFAB4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +50,9 @@ Global
 		{BBD724ED-2A22-46A1-BF93-8F6B290811CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBD724ED-2A22-46A1-BF93-8F6B290811CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBD724ED-2A22-46A1-BF93-8F6B290811CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA0C9CC1-80BC-409A-B670-7492909DFAB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA0C9CC1-80BC-409A-B670-7492909DFAB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA0C9CC1-80BC-409A-B670-7492909DFAB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA0C9CC1-80BC-409A-B670-7492909DFAB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
