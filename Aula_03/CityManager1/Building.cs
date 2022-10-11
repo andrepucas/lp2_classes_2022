@@ -11,7 +11,7 @@ namespace CityManager1
         public float Area {get;}
         public float Value {get;}
 
-        public Building(string type, float area, float value)
+        public Building(string type, float value, float area)
         {
             Type = type;
             Area = area;
@@ -27,7 +27,7 @@ namespace CityManager1
         }
 
         public override string ToString() => 
-            $"{Type, -20} | {Value, 8:f2} | {Area, 8:f2}";
+            $"Type: {Type, -15} | Value: {Value, 8:f2} | Area: {Area, 8:f2}";
         
     }
 }
