@@ -96,7 +96,7 @@ public class Star : ILightSource, IComparable<T>
 }
 ```
 
-- [ ] `2.1`
+- [X] `2.1`
 
 ```c#
 public override int GetHashCode() => 
@@ -111,14 +111,14 @@ public override bool Equals(object obj)
 }
 ```
 
-- [ ]  `2.2`
+- [X]  `2.2`
 
 ```md
 Ana is a Tank
 Paulo is a Slayer
 ```
 
-- [ ] `2.3`
+- [X] `2.3`
 
 ```md
 Se Player fosse uma struct, então seria considerado "igual" se todos os
@@ -127,33 +127,102 @@ valores da struct fossem iguais. Portanto, não seriam necessários os overrides
 
 ## `VERSÃO 4AB92`
 
-- [ ] `1.1`
+- [X] `1.1`
 
 ```c#
-public static ICollection<T> GetArray<T>(int size = 10, params T[] values)
+public static T[] GetArray<T>(int size = 10, T value = default)
 {
     T[] array = new T[size];
 
-    for (int i = 0; i < values.Length; i++)
-        array[i] = values[i];
-
-    for (int i = values.Length+1; i < size; i++)
-        array[i] = default;
+    for (int i = 0; i < size; i++) 
+        array[i] = value;
 
     return array;
 }
 ```
 
-- [ ] `1.2`
+- [X] `1.2`
 
 ```c#
-int[]  arrayOfInts = GetArrayOf<int>();
-int[]  arrayOf5DefaultInts = GetArrayOf<int>(5);
-int[]  arrayOf5SetInts = GetArrayOf<int>(5, 1, 2);
-bool[] arrayOf3Bools = GetArrayOf<bool>(3, false, true, true);
-bool[] arrayOf10FalseBools = GetArrayOf<bool>();
+Array _5buildings = GetArray<Building>(5);
+Array _10intsOf3 = GetArray<int>(value: 3);
+Array _10floatsOf0 = GetArray<float>();
+Array _10boolsFalse = GetArray<bool>();
+Array _7boolsTrue = GetArray<bool>(7, true);
 ```
 
 - [X] `2.1` `2.2` `2.3`
 
 > Iguais à [versão anterior](#versão-185a2)
+
+## `VERSÃO CF625`
+
+- [X] `1.1`
+
+```c#
+public class Sword : GameItem
+{
+    private float _length;
+    private WeaponCondition _condition;
+
+    public Sword(string p_name, string p_description, float p_length, 
+        WeaponCondition p_condition) : base(p_name, p_description)
+    {
+        _length = p_length
+        _condition = p_condition;
+    }
+}
+```
+
+- [X] `1.2`
+
+```c#
+public enum WeaponCondition
+{
+    Perfect,
+    Good,
+    Decent,
+    Poor,
+    Destroyed
+}
+```
+
+- [X] `1.3`
+
+```c#
+Sword sword = new Sword("sword", "a fine weapon", 60, WeaponCondition.Perfect);
+```
+
+- [X] `1.4`
+
+```md
+Neste caso não é tão grave uma vez que se tratam de valores readonly que só podem
+ser alterados no construtor. Por isso, após serem instanciadas tornam-se imutáveis.
+```
+
+- [X] `1.5`
+
+```md
+Não, uma vez que se trata de uma classe abstrata.
+```
+
+- [X] `2.1`
+
+```c#
+public static IEnumerable<T> GetNCopies<T>(int size, T value)
+{
+    T[] array = new T[size];
+
+    for (int i = 0; i < size; i++) 
+        array[i] = value;
+
+    return array;
+}
+```
+
+- [X] `2.2`
+
+```md
+Para poder ser usado sem uma instância e porque não depende de nenhum membro da
+classe onde se encontra.
+```
