@@ -81,9 +81,9 @@ public override bool Equals(object obj)
 }
 ```
 
-- [ ] `8`
+- [X] `8`
 
-![UML_20-21_1590DB_V2](https://github.com/andrepucas/lp2_classes_2022/blob/main/Exercicios/Support/UML_20-21_A590DB_V2.png)
+![UML_20-21_1590DB_V3](https://github.com/andrepucas/lp2_classes_2022/blob/main/Exercicios/Support/UML_20-21_A590DB_V3.png)
 
 ## `VERSÃO B0102F`
 
@@ -106,32 +106,40 @@ AddResource(Resource resource)
 Console.WriteLine(GameTile.MaxDefensiveBonus);
 ```
 
-- [ ] `4`
+- [X] `4`
 
 ```c#
 public abstract class GameTile
 {
-    public float TotalCost {get; private set;} 
+    public float TotalCost 
+    {
+        get
+        {
+            float _totalCost = 0;
+            foreach(Resource r in Resources) _totalCost += r.Cost;
+            return _totalCost;
+        }
+    }
 }
 ```
 
 ```md
-Não, uma vez que tem ser modificada sempre que um recurso é adicionado.
+Sim, porque o total cost é calculado com base nos recursos existentes.
 ```
 
-- [ ] `5`
+- [X] `5`
 
 ```md
 Não, porque o valor total do custo de todos os recursos não será igual para 
 todas as instâncias das subclasse de GameTile.
 ```
 
-- [ ] `6`
+- [X] `6`
 
 ```c#
 public class DesertTile : GameTile
 {
-    public override IEnumerable<Resource> Resources {get => _resourcesList;}
+    public override IEnumerable<Resource> Resources => _resourcesList;
 
     private List<Resource> _resourcesList;
 
@@ -153,21 +161,23 @@ public class DesertTile : GameTile
 }
 ```
 
-- [ ] `7`
+- [X] `7`
 
 ```c#
-public class GameTile : IComparable<GameTile>
+public abstract class GameTile : IComparable<GameTile>
 {
     (...)
 
     public int CompareTo(GameTile other)
     {
         if (other == null) return 1;
-        return (int)(other.TotalCost - TotalCost);
+        if (TotalCost > other.TotalCost) return -1;
+        if (TotalCost < other.TotalCost) return 1;
+        return 0;
     }
 }
 ```
 
-- [ ] `8`
+- [X] `8`
 
-![UML_20-21_B0102F_V2](https://github.com/andrepucas/lp2_classes_2022/blob/main/Exercicios/Support/UML_20-21_B0102F_V2.png)
+![UML_20-21_B0102F_V3](https://github.com/andrepucas/lp2_classes_2022/blob/main/Exercicios/Support/UML_20-21_B0102F_V3.png)
