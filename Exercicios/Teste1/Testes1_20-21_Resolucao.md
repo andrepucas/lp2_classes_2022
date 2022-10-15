@@ -109,7 +109,7 @@ Console.WriteLine(GameTile.MaxDefensiveBonus);
 - [ ] `4`
 
 ```c#
-public class GameTile
+public abstract class GameTile
 {
     public float TotalCost {get; private set;} 
 }
@@ -170,4 +170,4 @@ public class GameTile : IComparable<GameTile>
 
 - [ ] `8`
 
-![UML_20-21_B0102F](https://github.com/andrepucas/lp2_classes_2022/blob/main/Exercicios/Support/UML_20-21_B0102F.png)
+![UML_20-21_B0102F_V2](https://github.com/andrepucas/lp2_classes_2022/blob/main/Exercicios/Support/UML_20-21_B0102F_V2.png)
