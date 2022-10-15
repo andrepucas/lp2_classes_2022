@@ -87,4 +87,4 @@ public override bool Equals(object obj)
 
 - [ ] `8`
 
-![UML_20-21_1590DB](https://github.com/andrepucas/lp2_classes_2022/blob/main/Exercicios/Support/UML_20-21_A590DB.png)
+![UML_20-21_1590DB_V2](https://github.com/andrepucas/lp2_classes_2022/blob/main/Exercicios/Support/UML_20-21_A590DB_V2.png)
