@@ -223,6 +223,6 @@ public static IEnumerable<T> GetNCopies<T>(int size, T value)
 - [X] `2.2`
 
 ```md
-Para poder ser usado sem uma instância e porque não depende de nenhum membro da
-classe onde se encontra.
+Para poder ser usado sem uma instância e porque não depende de nenhum membro de
+instância.
 ```
