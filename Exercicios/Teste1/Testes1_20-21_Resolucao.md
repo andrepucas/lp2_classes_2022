@@ -46,7 +46,7 @@ Não, uma vez que depende da propriedade de instância Resources.
 ```c#
 public class HillTile : GameTile
 {
-    public override IEnumerable<Resource> Resources {get => _resourcesList;}
+    public override IEnumerable<Resource> Resources => _resourcesList;
 
     private List<Resource> _resourcesList;
     
