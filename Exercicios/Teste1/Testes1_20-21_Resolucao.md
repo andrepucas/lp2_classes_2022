@@ -282,7 +282,7 @@ public IEnumerable<Resource> GetResourcesOfType<T>() where T : Resource
 }
 ```
 
- [ ] `7`
+- [ ] `7`
 
 ```c#
 public class Resource : IEquatable<Resource>
