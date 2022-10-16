@@ -102,3 +102,103 @@ public class Thanos : Enemy
 - [ ] `12`
 
 ![UML_21-22_A16BE](https://github.com/andrepucas/lp2_classes_2022/blob/main/Exercicios/Support/UML_21-22_A16BE.png)
+
+## `VERSÃO BC9AF`
+
+- [ ] `1`
+
+```md
+Variável de instância: name.
+Propriedade de classe: AdversaryCount.
+```
+
+- [ ] `2`
+
+```md
+A propriedade Health, que é abstrata por isso tem obrigatoriamente de ser 
+sobreposta, e o método Die, que é virtual  por isso pode ou não ser sobreposto 
+pelas subclasses de Adversary.
+```
+
+- [ ] `3`
+
+```md
+Sim, uma vez que não tem a keyword sealed ou static.
+```
+
+- [ ] `4`
+
+```md
+Não, uma vez que é abstrata. Apenas subclasses não abstratas da mesma podem ser
+instanciadas.
+```
+
+- [X] `5`
+
+```c#
+Console.WriteLine(boss.Health);
+Console.WriteLine(Adversary.AdversaryCount);
+```
+
+- [X] `6`
+
+```md
+Porque o seu valor é partilhado entre todas as instâncias de Adversary.
+```
+
+- [X] `7`
+
+```md
+Apenas dentro da classe Adversary, onde foi definida, porque tem um private set.
+```
+
+- [ ] `8`
+
+```c#
+public abstract class Adversary
+{
+    public string State
+    {
+        get
+        {
+            if(Health <= 0) return "Dead";
+            else if (Health < 25) return "Very Weak";
+            else if (Health < 50) return "Weak";
+            else if (Health < 75) return "Not bad";
+            else if (Health < 100) return "Good";
+            else return "Excellent";
+        }
+    }
+}
+```
+
+- [ ] `9`
+
+```c#
+public static int NumberOf<T>(IEnumerable<Adversary> adversaries) where T : Adversary
+{
+    int count = 0;
+
+    foreach(Adversary adv in adversaries)
+        if (adv is T) count++;
+
+    return count;
+}
+```
+
+- [ ] `10`
+
+```md
+Sim, uma vez que não depende de nenhum membro de instância.
+```
+
+- [ ] `11`
+
+```c#
+public class DarthVader : Adversary
+{
+    public override int Health {get;}
+
+    public DarthVader() : base(name: "D. Vader", health: 200) {}
+}
+```
