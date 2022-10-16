@@ -2,12 +2,12 @@
 
 ## `VERSÃO A16BE`
 
-- [ ] `1`
+- [X] `1`
 
 ```md
-Membros de instância são a variável name, a propriedade Health e o método Die.
-Membros de classe são a propriedade static NumberOfEnemies e o método 
-construtor Enemy.
+Membros de instância são a variável name, a propriedade Health, o construtor
+Enemy e o método Die.
+O único membro de classe é a propriedade static NumberOfEnemies.
 ```
 
 - [ ] `2`

@@ -181,3 +181,118 @@ public abstract class GameTile : IComparable<GameTile>
 - [X] `8`
 
 ![UML_20-21_B0102F_V3](https://github.com/andrepucas/lp2_classes_2022/blob/main/Exercicios/Support/UML_20-21_B0102F_V3.png)
+
+## `VERSÃO CE9332`
+
+- [ ] `1`
+
+```md
+Não, porque se trata de uma classe sealed.
+```
+
+- [ ] `2`
+
+```md
+A classe GameTile não tem variáveis de instância.
+```
+
+- [ ] `3`
+
+```c#
+Console.WriteLine(desert.DefensiveBonus);
+```
+
+- [ ] `4`
+
+```c#
+public abstract class GameTile
+{
+    (...)
+
+    public int HowManyLowCost(float maxCost = 2.5f)
+    {
+        int count = 0;
+
+        foreach(Resource r in Resources)
+            if (r.Cost < maxCost) count++;
+
+        return count;
+    }
+}
+```
+
+- [ ] `5`
+
+```md
+Não, uma vez que depende de Resources, uma propriedade de instância.
+```
+
+- [ ] `6`
+
+```c#
+public class SeaTile
+{
+    public override IEnumerable<Resource> Resources {get;}
+
+    private List<Resource> _resourcesList;
+
+    public SeaTile(int p_movementCost)
+    {
+        _resourcesList = new List<Resource>();
+
+        MovementCost = p_movementCost;
+        DefensiveBonus = 0;
+    }
+
+    public override void AddResource(Resource resource) => 
+        _resourcesList.Add(resource);
+}
+```
+
+- [ ] `7`
+
+```c#
+public sealed class Resource : IComparable<Resource>
+{
+    (...)
+
+    public int CompareTo(Resource other)
+    {
+        if (other == null) return 1;
+        if (Cost > other.Cost) return 1;
+        if (Cost < other.Cost) return -1;
+        return 0;
+    }
+}
+```
+
+- [ ] `8`
+
+![UML_20-21_CE9332](https://github.com/andrepucas/lp2_classes_2022/blob/main/Exercicios/Support/UML_20-21_CE9332.png)
+
+## `VERSÃO DC4780`
+
+- [X] `4`
+
+```c#
+public IEnumerable<Resource> GetResourcesOfType<T>() where T : Resource
+{
+    foreach (Resource r in Resources)
+        if (r is T) yield return r;
+}
+```
+
+ [ ] `7`
+
+```c#
+public class Resource : IEquatable<Resource>
+{
+    (...)
+
+    public bool Equals(Resource other)
+    {
+        if (other == null) return false;
+        return Cost == other.Cost && Name == other.Name;
+    }
+}
+```
