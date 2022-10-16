@@ -202,3 +202,7 @@ public class DarthVader : Adversary
     public DarthVader() : base(name: "D. Vader", health: 200) {}
 }
 ```
+
+- [ ] `12`
+
+![UML_21-22_BC9AF](https://github.com/andrepucas/lp2_classes_2022/blob/main/Exercicios/Support/UML_21-22_BC9AF.png)
