@@ -9,84 +9,31 @@
 + [Aula 2 (04/10)](#aula-2-0410)
 + [Aula 3 (11/10)](#aula-3-1110)
 
-## Aula 3 (11/10)
+## Aula 1 (27/09)
 
-### Exercício 1 - Interfaces
+### Exercício 2 - Variáveis e Métodos
 
-1. Qual a keyword para declarar uma interface?
-    > `interface`.
+1. Possíveis variáveis e métodos para a classe Cat
+    > **Vars:** Name, Age, Color, Weight, Owner  
+    > **Métodos:** SetName(), GetAge(), GetColor(), SetOwner().
 
-2. Qual a visibilidade dos membros de uma interface?
-    > `public`.
+2. Uma das variáveis deve ser enum
+    > Enum Color {Black, White, Orange, Striped}
 
-3. Uma classe que implementa uma interface não tem de implementar todos os seus membros
-    > False, porque numa interface todos os membros são `public abstract`.
-
-4. Uma classe que implementa uma interface pode ter membros que não estão na interface
-    > True.
-
-5. Uma classe pode estender mais do que uma classe base
-    > False.
-
-6. Uma classe pode implementar mais do que uma interface
-    > True.
-
-7. Uma struct pode implementar interfaces
-    > True.
-
-### Exercício 8 - Conjuntos e Dicionários
-
-1. O que define "igualdade" de objetos em conjuntos e dicionários?
-    > Mesmo HashCodes e Equals.
-
-2. Podemos alterar esta definição de "igualdade"? Como?
-    > Sim, sobrepondo GetHashCode e Equals, ambos métodos virtuais de Object.
-
-3. Definição de "igualdade" por omissão em tipos de valor.
-    > Têm que ter o mesmo valor. Numa struct, todos os valores têm de ser iguais.
-
-4. Definição de "igualdade" por omissão em tipos de referência.
-    > Têm de ter a mesma referência.
-
-5. Exemplos de uma exceção em C#.
-    > String (duas referencias com o mesmo valor são iguais).
-
-6. São permitidos objetos "iguais" num conjunto?
-    > Não, porque em conjuntos a chave é o próprio valor.
-
-7. São permitidas chaves "iguais" num dicionário?
-    > Não.
-
-8. São permitidos valores "iguais" num dicionário?
-    > Sim.
-
-9. O que é guardado num dicionário?
-    > Pares chave-valor.
-
-10. Vantagens de usar dicionário em vez de listas.
-    > Um dicionário não precisa de iterar todos os valores para aceder a um valor.
-
-### Exercício 12- Métodos Revisitados
-
-1. Os parâmetros opcionais têm de aparecer sempre depois dos obrigatórios?
-    > Sim.
-
-2. Um parâmetro com keyword `params` tem de ser o último?
-    > Sim.
-
-3. Dado o método `void FazOutraCoisa(int x, params int[] numbers) {...}` quais são válidas?
-   1. FazOutraCoisa()
-        > Não, o param x é obrigatório.
-   2. FazOutraCoisa(1)
-        > Válido.
-   3. FazOutraCoisa(1, 2, 3, 4, 5)
-        > Válido.
-   4. FazOutraCoisa(1, new int[] {2, 3, 4, 5})
-        > Válido.
+> ### Usar Static
+>
+> **Apenas para variáveis da classe, independentes da instância.**
+>
+> Numa classe 'Cat', a variável 'NumberOfCats' seria igual para todas as instâncias,
+portanto faz sentido ser uma variável da classe - static.
+>
+> Métodos static são chamados diretamente na classe, em vez de na instância.
+Exemplo: Console.WriteLine, Debug.Log.
+>
+> São apenas úteis se não dependerem do estado da instância e se nunca for preciso
+alterar diretamente.
 
 [Back](#aulas-de-lp2-2022)
-
----
 
 ## Aula 2 (04/10)
 
@@ -249,28 +196,81 @@
 
 ---
 
-## Aula 1 (27/09)
+## Aula 3 (11/10)
 
-### Exercício 2 - Variáveis e Métodos
+### Exercício 1 - Interfaces
 
-1. Possíveis variáveis e métodos para a classe Cat
-    > **Vars:** Name, Age, Color, Weight, Owner  
-    > **Métodos:** SetName(), GetAge(), GetColor(), SetOwner().
+1. Qual a keyword para declarar uma interface?
+    > `interface`.
 
-2. Uma das variáveis deve ser enum
-    > Enum Color {Black, White, Orange, Striped}
+2. Qual a visibilidade dos membros de uma interface?
+    > `public`.
 
-> ### Usar Static
->
-> **Apenas para variáveis da classe, independentes da instância.**
->
-> Numa classe 'Cat', a variável 'NumberOfCats' seria igual para todas as instâncias,
-portanto faz sentido ser uma variável da classe - static.
->
-> Métodos static são chamados diretamente na classe, em vez de na instância.
-Exemplo: Console.WriteLine, Debug.Log.
->
-> São apenas úteis se não dependerem do estado da instância e se nunca for preciso
-alterar diretamente.
+3. Uma classe que implementa uma interface não tem de implementar todos os seus membros
+    > False, porque numa interface todos os membros são `public abstract`.
+
+4. Uma classe que implementa uma interface pode ter membros que não estão na interface
+    > True.
+
+5. Uma classe pode estender mais do que uma classe base
+    > False.
+
+6. Uma classe pode implementar mais do que uma interface
+    > True.
+
+7. Uma struct pode implementar interfaces
+    > True.
+
+### Exercício 8 - Conjuntos e Dicionários
+
+1. O que define "igualdade" de objetos em conjuntos e dicionários?
+    > Mesmo HashCodes e Equals.
+
+2. Podemos alterar esta definição de "igualdade"? Como?
+    > Sim, sobrepondo GetHashCode e Equals, ambos métodos virtuais de Object.
+
+3. Definição de "igualdade" por omissão em tipos de valor.
+    > Têm que ter o mesmo valor. Numa struct, todos os valores têm de ser iguais.
+
+4. Definição de "igualdade" por omissão em tipos de referência.
+    > Têm de ter a mesma referência.
+
+5. Exemplos de uma exceção em C#.
+    > String (duas referencias com o mesmo valor são iguais).
+
+6. São permitidos objetos "iguais" num conjunto?
+    > Não, porque em conjuntos a chave é o próprio valor.
+
+7. São permitidas chaves "iguais" num dicionário?
+    > Não.
+
+8. São permitidos valores "iguais" num dicionário?
+    > Sim.
+
+9. O que é guardado num dicionário?
+    > Pares chave-valor.
+
+10. Vantagens de usar dicionário em vez de listas.
+    > Um dicionário não precisa de iterar todos os valores para aceder a um valor.
+
+### Exercício 12- Métodos Revisitados
+
+1. Os parâmetros opcionais têm de aparecer sempre depois dos obrigatórios?
+    > Sim.
+
+2. Um parâmetro com keyword `params` tem de ser o último?
+    > Sim.
+
+3. Dado o método `void FazOutraCoisa(int x, params int[] numbers) {...}` quais são válidas?
+   1. FazOutraCoisa()
+        > Não, o param x é obrigatório.
+   2. FazOutraCoisa(1)
+        > Válido.
+   3. FazOutraCoisa(1, 2, 3, 4, 5)
+        > Válido.
+   4. FazOutraCoisa(1, new int[] {2, 3, 4, 5})
+        > Válido.
 
 [Back](#aulas-de-lp2-2022)
+
+---
