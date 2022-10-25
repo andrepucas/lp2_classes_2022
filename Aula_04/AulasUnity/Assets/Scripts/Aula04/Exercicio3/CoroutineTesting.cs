@@ -36,4 +36,14 @@ public class CoroutineTesting : MonoBehaviour
             yield return wfs;
         }
     }
+
+    private IEnumerator BeingPressed()
+    {
+        CustomYieldInstruction waitForPress = new WaitForPress();
+        while (true)
+        {
+            yield return waitForPress;
+            Debug.Log("Estou a ser pressionado!! Larga-me!!");
+        }
+    }
 }
