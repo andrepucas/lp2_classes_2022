@@ -13,10 +13,14 @@ namespace ExceptionTest
                 int i = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine($"Numero inserido: {i}");
             } 
-            catch (Exception e)
-            {
-                Console.WriteLine("Don't. Erro: " + e.Message);
-            }
+            catch (FormatException){
+                Console.WriteLine("Don't. Not a number.");}
+
+            catch (OverflowException){
+                Console.WriteLine("Don't. Chill with the size");}
+
+            catch (Exception e){
+                Console.WriteLine("Wtv this is: " + e.Message);}
         }
     }
 }
