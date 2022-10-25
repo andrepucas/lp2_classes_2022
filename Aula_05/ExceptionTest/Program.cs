@@ -14,13 +14,20 @@ namespace ExceptionTest
                 Console.WriteLine($"Numero inserido: {i}");
             } 
             catch (FormatException){
-                Console.WriteLine("Don't. Not a number.");}
+                Console.WriteLine("Don't. Not a number.");
+            }
 
             catch (OverflowException){
-                Console.WriteLine("Don't. Chill with the size");}
+                Console.WriteLine("Don't. Chill with the size");
+            }
 
             catch (Exception e){
-                Console.WriteLine("Wtv this is: " + e.Message);}
+                Console.WriteLine("Wtv this is: " + e.Message);
+            }
+
+            finally{
+                Console.WriteLine("Wtv, bye.");
+            }
         }
     }
 }
