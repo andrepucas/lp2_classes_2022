@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BearAdapter", "BearAdapter\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Descompressor", "Descompressor\Descompressor.csproj", "{CFBFFEAE-0FBE-47FC-BA95-26540CFA5793}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileStreams", "FileStreams\FileStreams.csproj", "{3F48A668-D8A1-4025-9883-B300982DC1FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{CFBFFEAE-0FBE-47FC-BA95-26540CFA5793}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFBFFEAE-0FBE-47FC-BA95-26540CFA5793}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CFBFFEAE-0FBE-47FC-BA95-26540CFA5793}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F48A668-D8A1-4025-9883-B300982DC1FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F48A668-D8A1-4025-9883-B300982DC1FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F48A668-D8A1-4025-9883-B300982DC1FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F48A668-D8A1-4025-9883-B300982DC1FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
