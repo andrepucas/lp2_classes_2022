@@ -305,4 +305,28 @@ alterar diretamente.
 9. Declara um delegate que seja compatível com a expressão Lambda anterior.
     > `public Delegate int MyString(string s);`
 
+### Exercício 3 - Nulls
+
+1. Tipos de valor podem ter o valor `null`?
+   > Não.
+
+2. Que decorador podemos usar para que os tipos de valor possam ter o valor `null`?
+   > A struct `Nullable<T>`.
+
+3. Que sintaxe simplifica o uso desse mesmo decorador?
+   > `?`
+
+4. Que propriedades tem a struct que faz essa decoração? Como as podemos utilizar?
+    > HasValue -> Indica se a variável tem valor ou é null (bool).  
+    > Value -> Devolve valor, se não for null.
+
+5. Que operador simplifica o uso dessas propriedades?
+   > `??`
+
+6. Como verificar de modo conciso se dado objeto é null, evitando uma `NullReferenceException` no acesso aos seus membros?
+   > `?.`
+
+7. No caso anterior, se estivermos a usar tipos de valor, como evitar que a verificação utilizada produza um null?
+   > Usando o `??` depois da verificação.
+
 ---
