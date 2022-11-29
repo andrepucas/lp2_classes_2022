@@ -8,6 +8,7 @@
 + [Aula 1 (27/09)](#aula-1-2709)
 + [Aula 2 (04/10)](#aula-2-0410)
 + [Aula 3 (11/10)](#aula-3-1110)
++ [Aula 8 (29/11)](#aula-8-2911)
 
 ## Aula 1 (27/09)
 
@@ -272,5 +273,36 @@ alterar diretamente.
         > Válido.
 
 [Back](#aulas-de-lp2-2022)
+
+## Aula 8 (29/11)
+
+### Exercício 2 - Lambda
+
+1. Expressões lambda são um tipo especial de método.
+    > Sim.
+
+2. Podemos dar um nome a uma expressão lambda.
+    > Não, só pode ter nome a variável que guarde a lambda.
+
+3. Qual é o operador para definir uma expressão lambda?
+    > =>
+
+4. Converte em lambda: `public bool IsNegative(int x) {return x < 0; }`
+   > `public bool IsNegative (int x) => x < 0`
+
+5. Expressões lambda podem apenas ter um parâmetro.
+   > Não, podem ter mais.
+
+6. Expressões lambda têm acesso às variáveis locais do método onde foram definidas.
+   > Sim, variáveis capturadas.
+
+7. Converte para um método: `s => s.Split().Length`
+   > `public int WordCount(string s) {return s.Split().Length()}`;
+
+8. Indica um delegate pré definido do C# que seja compatível com a expressão Lambda anterior
+   > `Func<string, int>`
+
+9. Declara um delegate que seja compatível com a expressão Lambda anterior.
+    > `public Delegate int MyString(string s);`
 
 ---
