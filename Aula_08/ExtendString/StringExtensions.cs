@@ -26,5 +26,11 @@ namespace ExtendString
 
             return m_sb.ToString();
         }
+
+        public static bool IsEven(this int i) => i % 2 == 0;
+
+        public static bool IsPositive(this int i) => i >= 0;
+
+        public static bool IsMultipleOf(this int i, int otherInt) => i % otherInt == 0;
     }
 }
