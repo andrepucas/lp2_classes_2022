@@ -469,6 +469,6 @@ Por ordem:
 ```c#
 Func<Vector2, float> deg2vec = VectorOps.Deg2Vec;
 Func<float, Vector2> vec2deg = VectorOps.Vec2Deg;
-Func<Vector2, Vector2, Vector2> = VectorOps.Direction;
-Func<float, Vector2, Vector2> = VectorOps.Distance;
+Func<Vector2, Vector2, Vector2> direction = VectorOps.Direction;
+Func<float, Vector2, Vector2> distance = VectorOps.Distance;
 ```
