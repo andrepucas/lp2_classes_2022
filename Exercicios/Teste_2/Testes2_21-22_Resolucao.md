@@ -472,3 +472,157 @@ Func<float, Vector2> vec2deg = VectorOps.Vec2Deg;
 Func<Vector2, Vector2, Vector2> direction = VectorOps.Direction;
 Func<float, Vector2, Vector2> distance = VectorOps.Distance;
 ```
+
+## VERSÃO 4 - `DFBA3`
+
+- [ ] `1`
+
+> Considera a seguinte classe:
+>
+> ```c#
+> public static class VecMethods
+> {
+>     // Normalized direction between two game objects
+>     public static Vector2 Direction(Vector2 from, Vector2 to)
+>     {
+>         return (to - from) / (to - from).magnitude;
+>     }
+> 
+>     // Distance between two game objects
+>     public static float Distance(Vector2 obj1, Vector2 obj2)
+>     {
+>         return (obj1 - obj2).magnitude;
+>     }
+>
+>     // Convert angle in degrees into normalized vector
+>     public static Vector2 Deg2Vec(float angle)
+>     {
+>         float angleRad = angle * Mathf.Deg2Rad;
+>         return new Vector2(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
+>     }
+> 
+>     // Determine angle of vector in degrees
+>     public static float Vec2Deg(Vector2 vector)
+>     {
+>         return Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
+>     }
+> }
+> ```
+
+- [ ] `1.1`
+
+> Simplifica os métodos usando lambdas.
+
+```c#
+public static Vector2 Direction(Vector2 from, Vector2 to) =>
+    (to - from) / (to - from).magnitude;
+
+public static float Distance(Vector2 obj1, Vector2 obj2) => 
+    (obj1 - obj2).magnitude;
+
+public static Vector2 Deg2Vec(float angle) => 
+    new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
+
+public static float Vec2Deg(Vector2 vector) => 
+    Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
+```
+
+- [ ] `1.2`
+
+> Indica, para cada método, um delegate pré-definido do C# que seja compatível.
+
+```md
+Por ordem:
+
+- Func<Vector2, Vector2, Vector2>
+- Func<float, Vector2, Vector2>
+- Func<Vector2, float>
+- Func<float, Vector2>
+```
+
+- [ ] `1.3`
+
+> Assumindo que estás num método noutra classe, escreve quatro linhas de código
+> nas quais declaras quatro variáveis do tipo delegate pré-definido que indicaste
+> na alínea anterior, atribuindo-lhes o respetivo método compatível.
+
+```c#
+Func<Vector2, Vector2, Vector2> direction = VecMethods.Direction;
+Func<float, Vector2, Vector2> distance = VecMethods.Distance;
+Func<Vector2, float> deg2vec = VecMethods.Deg2Vec;
+Func<float, Vector2> vec2deg = VecMethods.Vec2Deg;
+```
+
+- [X] `2`
+
+> Considera a seguinte enumeração:
+>
+> ```c#
+> enum Star { RedDwarf, BrownDwarf, WhiteDwarf, SubGiant, Giant, SuperGiant, HyperGiant }
+> ```
+
+- [X] `2.1`
+
+> Declara uma lista de Star na qual seja possível também introduzir nulls.
+
+```c#
+List<Star?> starsList;
+```
+
+- [X] `2.2`
+
+> Assume que a variável 'star' é do tipo Star. Escreve uma linha de código
+> onde atribuis à variável 'star' o valor do primeiro elemento da lista da
+> alínea anterior, tendo em conta que se este valor for null, o valor
+> efetivamente a atribuir será RedDwarf.
+
+```c#
+star = starsList?[0] ?? Star.RedDwarf;
+```
+
+- [X] `2.3`
+
+> Escreve o código de um método que receba a lista da primeira alínea e devolva
+> um inteiro indicando quantos nulls existem na lista. O método deve ser o mais
+> compacto possível, fazendo uso de Lambdas e LINQ.
+
+```c#
+private static int HowManyNullsIn(List<Star?> list) => list.Count(s => !m.HasValue);
+```
+
+- [ ] `3`
+
+> Estás a desenvolver um jogo em que os passos seguidos por uma arma ao realizar
+> um ataque são sempre os mesmos, nomeadamente:
+>
+> 1. DecAmmo() - Decrementar munições (dependendo de quantas foram gastas).
+> 2. ProbSuccess() - Determinar probabilidade de sucesso.
+> 3. EnemyDamage() - Determinar estrago infligido no inimigo.
+> 4. Cooldown() - Determinar tempo de cooldown.
+>
+> Existem diferentes tipos de arma, que apesar de seguirem estes quatro passos
+> durante um ataque, poderão personalizá-los de formas distintas. É expectável
+> que o tempo de cooldown para a maior parte das armas seja zero. Numa primeira
+> versão o jogo terá duas armas, **melee** e **pistol**. A arma melee tem tempo
+> de cooldown igual a zero.
+
+- [ ] `3.1`
+
+> Que design pattern te parece mais apropriado para resolver este problema?
+> Justifica a tua resposta.
+
+```md
+Uma boa hipótese pode ser o Template Method, uma vez que permite todas as armas
+seguirem os mesmos passos gerais através de uma classe base 'Weapon' que define
+quais os passos (métodos) que uma arma deve executar e em qual ordem,
+juntamente com subclasses de armas específicas, que personalizam os métodos como
+entenderem.
+```
+
+- [ ] `3.2`
+
+> Apresenta o diagrama UML completo de uma possível solução, contendo a
+> informação mínima e necessária que realce o pattern utilizado. Em particular,
+> indica se os métodos têm implementações por omissão ou são abstract.
+
+![T2_V4 UML](Imagens/uml_t2v4.png "UML Completo")
