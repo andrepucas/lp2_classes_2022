@@ -30,7 +30,7 @@ public static class IntExtensions
 > E qual seria o resultado?
 
 ```c#
-4.IsMultipleOf(3);
+(4).IsMultipleOf(3);
 
 O resultado seria false.
 ```
@@ -267,7 +267,7 @@ public static class IntExtensions
 > E qual seria o resultado?
 
 ```c#
-7.IsDivisorOf(14);
+(7).IsDivisorOf(14);
 
 O resultado seria true.
 ```
@@ -316,4 +316,159 @@ lotsOfIntsOrNull.Any(i => !i.HasValue);
 ```c#
 foreach (int? i in lotsOfIntsOrNulls)
     product *= i ?? 1;
+```
+
+## VERSÃO 3 - `C41DA`
+
+- [X] `1`
+
+> Considera a seguinte enumeração:
+>
+> ```c#
+>   enum Monster { Troll, Ogre, Elf, Demon, Vampire, Werewolf, Minion}
+> ```
+
+- [X] `1.1`
+
+> Declara uma lista de Monster na qual seja possível também introduzir nulls.
+
+```c#
+List<Monster?> monstersList;
+```
+
+- [X] `1.2`
+
+> Assume que a variável 'monst' é do tipo Monster. Escreve uma linha de código
+> onde atribuis à variável 'monst' o valor do primeiro elemento da lista da
+> alínea anterior, tendo em conta que se este valor for null, o valor
+> efetivamente a atribuir será Minion.
+
+```c#
+monst = monstersList?[0] ?? Monster.Minion;
+```
+
+- [X] `1.3`
+
+> Escreve o código de um método que receba a lista da primeira alínea e devolva
+> um inteiro indicando quantos nulls existem na lista. O método deve ser o mais
+> compacto possível, fazendo uso de Lambdas e LINQ.
+
+```c#
+private static int HowManyNullsIn(List<Monster?> list) => list.Count(m => !m.HasValue);
+```
+
+- [ ] `2`
+
+> Estás a desenvolver um jogo em que uma arma pode realizar uma ou mais ações
+> durante um ataque, sem qualquer ordem pré-definida e podendo inclusive repetir
+> ações, dentro das seguintes possibilidades:
+>
+> - ParticleSmoke() - Aplicar um efeito de partículas semelhante a fumo devido
+> ao disparo.
+> - ParticleFire() - Aplicar um efeito de partículas que represente o disparo de
+> uma bala.
+> - EnemyDamage() - Aplicar dano ao inimigo.
+> - Cooldown() - Aplicar um tempo de cooldown.
+> - WeaponDamage() - Aplicar dano à arma.
+> - PlayerDamage() - Aplicar dano infligido pela arma no próprio jogador (e.g.
+> devido a backfire).
+>
+> Numa primeira versão o jogo terá duas armas, **sword** e **shotgun**.
+
+- [ ] `2.1`
+
+> Que design pattern te parece mais apropriado para resolver este problema?
+> Justifica a tua resposta.
+
+```md
+Uma boa hipótese pode ser o Subclasses Sandbox, uma vez que permite ter todos
+esses comportamentos base numa classe base, que depois as armas especificas
+(como sword e shotgun, nesta fase) estendem como subclasses e usam apenas os
+comportamentos que lhes interessa, na ordem e as vezes que quiserem.
+```
+
+- [ ] `2.2`
+
+> Apresenta o diagrama UML completo de uma possível solução, contendo a
+> informação mínima e necessária que realce o pattern utilizado. Em particular,
+> indica se os métodos têm implementações por omissão ou são abstract.
+
+![T2_V3 UML](Imagens/uml_t2v3.png "UML Completo")
+
+- [ ] `3`
+
+> Considera a seguinte classe:
+>
+> ```c#
+> public static class VectorOps
+> {
+>     // Convert angle in degrees into normalized vector
+>     public static Vector2 Deg2Vec(float angle)
+>     {
+>         float angleRad = angle * Mathf.Deg2Rad;
+>         return new Vector2(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
+>     }
+> 
+>     // Determine angle of vector in degrees
+>     public static float Vec2Deg(Vector2 vector)
+>     {
+>         return Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
+>     }
+> 
+>     // Normalized direction between two game objects
+>     public static Vector2 Direction(Vector2 from, Vector2 to)
+>     {
+>         return (to - from) / (to - from).magnitude;
+>     }
+> 
+>     // Distance between two game objects
+>     public static float Distance(Vector2 obj1, Vector2 obj2)
+>     {
+>         return (obj1 - obj2).magnitude;
+>     }
+> }
+> ```
+
+- [ ] `3.1`
+
+> Simplifica os métodos usando lambdas.
+
+```c#
+public static Vector2 Deg2Vec(float angle) => 
+    new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
+
+public static float Vec2Deg(Vector2 vector) => 
+    Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
+
+public static Vector2 Direction(Vector2 from, Vector2 to) =>
+    (to - from) / (to - from).magnitude;
+
+public static float Distance(Vector2 obj1, Vector2 obj2) => 
+    (obj1 - obj2).magnitude;
+```
+
+- [ ] `3.2`
+
+> Indica, para cada método, um delegate pré-definido do C# que seja compatível.
+
+```md
+Por ordem:
+
+- Func<Vector2, float>
+- Func<float, Vector2>
+- Func<Vector2, Vector2, Vector2>
+- Func<float, Vector2, Vector2>
+```
+
+- [ ] `3.3`
+
+> Assumindo que estás num método noutra classe, escreve quatro linhas de código
+> nas quais declaras quatro variáveis do tipo delegate pré-definido que indicaste
+> na alínea anterior, atribuindo-lhes o respetivo método compatível.
+
+```c#
+Func<Vector2, float> deg2vec = VectorOps.Deg2Vec;
+Func<float, Vector2> vec2deg = VectorOps.Vec2Deg;
+Func<Vector2, Vector2, Vector2> = VectorOps.Direction;
+Func<float, Vector2, Vector2> = VectorOps.Distance;
 ```
