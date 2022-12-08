@@ -213,7 +213,7 @@ incrementada em cada iteração do foreach.
 > na linha de código que diz “// Evento lançado aqui”
 
 ```c#
-protected virtual OnPickedUpAPowerUp() => PickedUpAPowerUp?.Invoke();
+protected virtual void OnPickedUpAPowerUp() => PickedUpAPowerUp?.Invoke();
 ```
 
 - [X] `2.2`
@@ -451,13 +451,18 @@ public static float Distance(Vector2 obj1, Vector2 obj2) =>
 
 > Indica, para cada método, um delegate pré-definido do C# que seja compatível.
 
-```md
-Por ordem:
+```c#
+// Vector2 Deg2Vec(float)
+Func<float, Vector2>
 
-- Func<Vector2, float>
-- Func<float, Vector2>
-- Func<Vector2, Vector2, Vector2>
-- Func<float, Vector2, Vector2>
+// float Vec2Deg(Vector2)
+Func<Vector2, float>
+
+// Vector2 Direction(Vector2, Vector2)
+Func<Vector2, Vector2, Vector2>
+
+// float Distance(Vector2, Vector2)
+Func<Vector2, Vector2, float>
 ```
 
 - [ ] `3.3`
@@ -467,10 +472,10 @@ Por ordem:
 > na alínea anterior, atribuindo-lhes o respetivo método compatível.
 
 ```c#
-Func<Vector2, float> deg2vec = VectorOps.Deg2Vec;
-Func<float, Vector2> vec2deg = VectorOps.Vec2Deg;
-Func<Vector2, Vector2, Vector2> direction = VectorOps.Direction;
-Func<float, Vector2, Vector2> distance = VectorOps.Distance;
+Func<float, Vector2> deg2vec = VecMethods.Deg2Vec;
+Func<Vector2, float> vec2deg = VecMethods.Vec2Deg;
+Func<Vector2, Vector2, Vector2> direction = VecMethods.Direction;
+Func<Vector2, Vector2, float> distance = VecMethods.Distance;
 ```
 
 ## VERSÃO 4 - `DFBA3`
@@ -531,13 +536,18 @@ public static float Vec2Deg(Vector2 vector) =>
 
 > Indica, para cada método, um delegate pré-definido do C# que seja compatível.
 
-```md
-Por ordem:
+```c#
+// Vector2 Direction(Vector2, Vector2)
+Func<Vector2, Vector2, Vector2>
 
-- Func<Vector2, Vector2, Vector2>
-- Func<float, Vector2, Vector2>
-- Func<Vector2, float>
-- Func<float, Vector2>
+// float Distance(Vector2, Vector2)
+Func<Vector2, Vector2, float>
+
+// Vector2 Deg2Vec(float)
+Func<float, Vector2>
+
+// float Vec2Deg(Vector2)
+Func<Vector2, float>
 ```
 
 - [ ] `1.3`
@@ -548,9 +558,9 @@ Por ordem:
 
 ```c#
 Func<Vector2, Vector2, Vector2> direction = VecMethods.Direction;
-Func<float, Vector2, Vector2> distance = VecMethods.Distance;
-Func<Vector2, float> deg2vec = VecMethods.Deg2Vec;
-Func<float, Vector2> vec2deg = VecMethods.Vec2Deg;
+Func<Vector2, Vector2, float> distance = VecMethods.Distance;
+Func<float, Vector2> deg2vec = VecMethods.Deg2Vec;
+Func<Vector2, float> vec2deg = VecMethods.Vec2Deg;
 ```
 
 - [X] `2`
