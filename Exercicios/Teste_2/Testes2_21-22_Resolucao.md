@@ -102,7 +102,7 @@ uma vez que possui os membros mais abstratos possíveis para adicionar, remover
 e contar itens.
 ```
 
-- [ ] `3`
+- [X] `3`
 
 > Considera a classe:
 >
@@ -123,7 +123,7 @@ e contar itens.
 >   }
 > ```
 
-- [ ] `3.1`
+- [X] `3.1`
 
 > Indica um delegate pré-definido do C# compatível com o método UpdatePowerUpStats.
 
@@ -131,28 +131,41 @@ e contar itens.
 Action<float>
 ```
 
-- [ ] `3.2`
+- [X] `3.2`
 
 > Considera que a classe Player tem um evento nativo do C# chamado PickedUpAPowerUp.
 > Completa a classe PlayerStats de modo a que o método UpdatePowerUpStats seja
 > notificado desse evento quando a respetiva instância de PlayerStats estiver ativa.
 
 ```c#
-private void OnEnable() => player.PickedUpAPowerUp += UpdatePowerUpStats;
+public class PlayerStats : MonoBehaviour
+{
+    // ...
+
+    private void OnEnable() => player.PickedUpAPowerUp += UpdatePowerUpStats;
+
+    private void OnDisable() => player.PickedUpAPowerUp -= UpdatePowerUpStats;
+
+    // ...
+}
 ```
 
-- [ ] `3.3`
+- [X] `3.3`
 
 > Que design pattern é explicitamente implementado pelos eventos do C#?
 > Explica o teu raciocínio.
 
 ```md
-Os eventos de C# explicitamente implementam o Observer pattern, de uma forma mais
-simples, porque quando uma classe subscreve a um evento de outra classe é como se
-se registasse como um observador da classe com o evento, que seria o sujeito.
-Para além disso, da mesma forma que subscreve um evento e se regista como um
-observador, sendo notificado sempre que um evento é lançado, pode também remover
-a subscrição e parar de ser notificado.
+Os eventos de C# implementam explicitamente o Observer pattern, mas sem precisar
+de interfaces ou classes adicionais.
+
+Quando uma classe subscreve um evento de outra classe é como se se registasse
+como seu observador, enquanto que a classe que lança o evento pode ser vista
+como o sujeito.
+
+Para além disso, da mesma forma que subscreve um evento e se regista como
+observador (+=), sendo notificado sempre que um evento é lançado, pode também
+remover a subscrição e parar de ser notificado (-=).
 ```
 
 ## VERSÃO 2 - `B9A26`
@@ -225,18 +238,22 @@ protected virtual void OnPickedUpAPowerUp() => PickedUpAPowerUp?.Invoke();
 O evento usa o delegate Action<float>, overload do delegate nativo do C#, Action.
 ```
 
-- [ ] `2.3`
+- [X] `2.3`
 
 > Que design pattern é explicitamente implementado pelos eventos do C#?
 > Explica o teu raciocínio.
 
 ```md
-Os eventos de C# explicitamente implementam o Observer pattern, de uma forma mais
-simples, porque quando uma classe subscreve a um evento de outra classe é como se
-se registasse como um observador da classe com o evento, que seria o sujeito.
-Para além disso, da mesma forma que subscreve um evento e se regista como um
-observador, sendo notificado sempre que um evento é lançado, pode também remover
-a subscrição e parar de ser notificado.
+Os eventos de C# implementam explicitamente o Observer pattern, mas sem precisar
+de interfaces ou classes adicionais.
+
+Quando uma classe subscreve um evento de outra classe é como se se registasse
+como seu observador, enquanto que a classe que lança o evento pode ser vista
+como o sujeito.
+
+Para além disso, da mesma forma que subscreve um evento e se regista como
+observador (+=), sendo notificado sempre que um evento é lançado, pode também
+remover a subscrição e parar de ser notificado (-=).
 ```
 
 - [X] `3.1`
@@ -395,7 +412,7 @@ comportamentos que lhes interessa, na ordem e as vezes que quiserem.
 
 ![T2_V3 UML](Imagens/uml_t2v3.png "UML Completo")
 
-- [ ] `3`
+- [X] `3`
 
 > Considera a seguinte classe:
 >
@@ -429,7 +446,7 @@ comportamentos que lhes interessa, na ordem e as vezes que quiserem.
 > }
 > ```
 
-- [ ] `3.1`
+- [X] `3.1`
 
 > Simplifica os métodos usando lambdas.
 
@@ -447,7 +464,7 @@ public static float Distance(Vector2 obj1, Vector2 obj2) =>
     (obj1 - obj2).magnitude;
 ```
 
-- [ ] `3.2`
+- [X] `3.2`
 
 > Indica, para cada método, um delegate pré-definido do C# que seja compatível.
 
@@ -465,7 +482,7 @@ Func<Vector2, Vector2, Vector2>
 Func<Vector2, Vector2, float>
 ```
 
-- [ ] `3.3`
+- [X] `3.3`
 
 > Assumindo que estás num método noutra classe, escreve quatro linhas de código
 > nas quais declaras quatro variáveis do tipo delegate pré-definido que indicaste
@@ -480,7 +497,7 @@ Func<Vector2, Vector2, float> distance = VecMethods.Distance;
 
 ## VERSÃO 4 - `DFBA3`
 
-- [ ] `1`
+- [X] `1`
 
 > Considera a seguinte classe:
 >
@@ -514,7 +531,7 @@ Func<Vector2, Vector2, float> distance = VecMethods.Distance;
 > }
 > ```
 
-- [ ] `1.1`
+- [X] `1.1`
 
 > Simplifica os métodos usando lambdas.
 
@@ -532,7 +549,7 @@ public static float Vec2Deg(Vector2 vector) =>
     Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
 ```
 
-- [ ] `1.2`
+- [X] `1.2`
 
 > Indica, para cada método, um delegate pré-definido do C# que seja compatível.
 
@@ -550,7 +567,7 @@ Func<float, Vector2>
 Func<Vector2, float>
 ```
 
-- [ ] `1.3`
+- [X] `1.3`
 
 > Assumindo que estás num método noutra classe, escreve quatro linhas de código
 > nas quais declaras quatro variáveis do tipo delegate pré-definido que indicaste
