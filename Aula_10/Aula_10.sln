@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Threads", "Threads\Threads.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrogRace", "FrogRace\FrogRace.csproj", "{FF0CD845-BA87-46ED-8D2E-313D906A0921}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InputSystem", "InputSystem\InputSystem.csproj", "{CBBF9965-39D6-48F4-88D7-50D12F3B5603}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{FF0CD845-BA87-46ED-8D2E-313D906A0921}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF0CD845-BA87-46ED-8D2E-313D906A0921}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF0CD845-BA87-46ED-8D2E-313D906A0921}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBBF9965-39D6-48F4-88D7-50D12F3B5603}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBBF9965-39D6-48F4-88D7-50D12F3B5603}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBBF9965-39D6-48F4-88D7-50D12F3B5603}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBBF9965-39D6-48F4-88D7-50D12F3B5603}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
