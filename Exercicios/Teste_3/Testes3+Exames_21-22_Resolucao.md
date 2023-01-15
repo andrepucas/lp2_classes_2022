@@ -31,7 +31,7 @@ co-dependências umas com as outras.
 
 - [ ] `3.1`
 
-> Modifica a classe de modo a que as operações realizadas pelo método AddToResult
+> Modifica a classe de modo a que as operações realizadas pelo método AddToResult()
 > sejam thread-safe.
 
 ```c#
@@ -109,7 +109,7 @@ public static explicit operator int(CharWithAScore cws) => cws.CharValue;
 
 ```c#
 public static implicit operator CharWithAScore(int value) => 
-    new CharWithAScore() { Score = value; CharValue = '' };
+    new CharWithAScore() { Score = value; CharValue = ' ' };
 ```
 
 - [ ] `4.3`
@@ -125,9 +125,8 @@ public static CharWithAScore operator +(CharWithAScore cws1, CharWithAScore cws2
     return new CharWithAScore() 
     {
         Score = cws1.Score + cws2.Score,
-        CharValue = (cws1.CharValue > cws2.CharValue)
-            ? cws1.CharValue
-            : cws2.CharValue
+        CharValue = (cws1.CharValue > cws2.CharValue) 
+            ? cws1.CharValue : cws2.CharValue
     };
 }
 ```
@@ -138,7 +137,152 @@ public static CharWithAScore operator +(CharWithAScore cws1, CharWithAScore cws2
 > operadores e conversores pedidos nas alíneas anteriores.
 
 ```c#
-4.1 -> int n = (int)cws; // cws is CharWithAScore
+4.1 -> int n = (int)cws; // cws = CharWithAScore instance.
 4.2 -> CharWithAScore cws = 5;
 4.3 -> CharWithAScore cws = cws1 + cws2;
+```
+
+## Teste 3 V2 - `B111C`
+
+- [ ] `2`
+
+> Descreve por palavras tuas:  
+>
+> - O Singleton design pattern (o que é e o que nos permite fazer)
+> - As vantagens e desvantagens desse pattern
+> - Uma possível alternativa, realçando que problemas do Singleton essa
+> alternativa resolve ou minimiza (podes referir um pattern alternativo ou uma
+> técnica alternativa exclusiva do Unity, se preferires).
+
+```md
+O singleton design pattern assegura que uma classe que o implemente tenha apenas
+uma instância, fornecendo um ponto de acesso global à mesma, como uma classe static.
+
+A vantagem de usar o mesmo, é que ao contrario de uma classe static, este pode
+implementar interfaces e ser estendido. Contudo, o singleton pattern viola também o
+princípio de Least Knowledge, por ser um ponto de acesso global a que todos podem
+aceder, e ainda o Single Responsibility Principle, ao adicionar à classe a 
+funcionalidade extra de se auto-inicializar. A lista de desvantagens continua.
+
+Uma boa alternativa a Singletons são os Unity Scriptable Objects. Instâncias que
+podem ser partilhadas entre vários componentes, cujo estado é independente de
+game objects e scenes. Isto é uma alternativa melhor uma vez que tem as mesmas
+vantagens que um membro global, sem ser acessível por todo o programa, sendo
+apenas injetado nas classes que precisam de o usar (possível até através do 
+Editor).
+```
+
+- [ ] `3`
+
+> Considera a struct:
+>
+> ```c#
+>   public struct AlienRace
+>   {
+>       public bool AlienExist { get; set; }
+>       public char Symbol { get; set; }
+>   }
+
+- [ ] `3.1`
+
+> Adiciona uma conversão definida pelo utilizador para converter bool em
+> AlienRace, no qual AliensExist toma o valor do bool e Symbol toma o valor do
+> caráter espaço em branco se o bool for false ou o valor ’X’ se o bool for true.
+
+```c#
+public static implicit operator AlienRace(bool exists)
+    => new AlienRace() { AlienExist = exists, Symbol = exists ? 'X' : ' ' };
+```
+
+- [ ] `3.2`
+
+> Adiciona uma conversão definida pelo utilizador para converter AlienRace em
+> bool (usando o valor de AliensExist).
+
+```c#
+public static explicit operator bool(AlienRace ar) => ar.AlienExist;
+```
+
+- [ ] `3.3`
+
+> Adiciona um indexador só de leitura c/ índices inteiros, devolvendo um char
+> cujo valor numérico é igual ao valor numérico de Symbol mais o valor inteiro do
+> índice.
+
+```c#
+public char this[int index] => (char)(Symbol + index)
+```
+
+- [ ] `3.4`
+
+> Escreve 3 linhas de código, cada uma exemplificando como são utilizados os
+> conversores e indexadores pedidos nas alíneas anteriores.
+
+```c#
+3.1 -> AlienRace ar = true;
+3.2 -> bool arExists = (bool) ar; // ar = AlienRace instance.
+3.3 -> char newSymbol = ar[5];
+```
+
+- [ ] `4`
+
+> Considera a classe:
+>
+> ```c#
+>   class ParallelMult
+>   {
+>       private int result;
+>       public void MultResult(int multiplier) => result *= multiplier;
+>   }
+
+- [ ] `4.1`
+
+> Modifica a classe de modo a que as operações realizadas pelo método MultResult()
+> sejam thread-safe.
+
+```c#
+public class ParallelMult
+{
+    private static readonly object threadLock = new object();
+    private int result;
+
+    public void MultResult(int multiplier)
+    {
+        lock (threadLock)
+        {
+            result *= multiplier;
+        }
+    }
+}
+```
+
+- [ ] `4.2`
+
+> Cria um programa que cria uma instância de ParallelMult, lança 30 threads em
+> paralelo, sendo que o método executado por cada uma das threads multiplica um
+> valor aleatório entre 2 e 7 ao valor result da instância de ParallelMult.
+
+```c#
+public class Program
+{
+    private static ParallelMult parallelMult;
+    private static Random rnd;
+
+    public static void Main()
+    {
+        rnd = new Random();
+        parallelMult = new ParallelMult();
+        
+        for (int i = 0; i <30; i++)
+        {
+            Thread t = new Thread(RandomValue2To7);
+            t.Start();
+        }
+    }
+
+    private static void RandomValue2To7()
+    {
+        parallelMult.MultResult(rnd.Next(2, 8));
+    }
+}
 ```
