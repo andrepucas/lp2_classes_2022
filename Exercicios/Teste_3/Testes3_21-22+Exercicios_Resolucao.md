@@ -318,7 +318,7 @@ public class Program
 > instâncias de Adder; e) é mostrado no ecrã o valor Total da instância solitária
 > de AddManager; e, f) é indicado no ecrã se as somas são iguais ou não.
 
-`48.1`
+- `48.1`
 
 ```c#
 public class AddManager
@@ -348,7 +348,7 @@ public class AddManager
 }
 ```
 
-`48.2`
+- `48.2`
 
 ```c#
 public class Adder
@@ -378,7 +378,7 @@ public class Adder
 }
 ```
 
-`48.3`
+- `48.3`
 
 ```c#
 public class Program
@@ -417,7 +417,9 @@ public class Program
 }
 ```
 
-- [ ] `50` **Threads**
+---
+
+- [X] `50` **Threads**
 
 > Considera o método com assinatura void DoStuff(). Assumindo que estás noutro
 > método da mesma classe, escreve código para:
@@ -433,16 +435,20 @@ List<Thread> threadsList = new List<Thread>();
 
 // 1.
 for (int i = 0; i < 100; i++)
-    threadsList.Add(new Thread(DoStuff));
+{
+    Thread t = new Thread(DoStuff);
+    threadsList.Add(t);
 
-// 2.
-foreach (Thread t in threadsList)
+    // 2.
     t.Start();
+}
 
 // 3.
 foreach (Thread t in threadsList)
     t.Join();
 ```
+
+---
 
 - [X] `51` **Threads + Eventos**
 
@@ -490,6 +496,8 @@ pc.Bingo += BingoHandler;
 // 3.
 protected virtual void OnBingo() => Bingo?.Invoke();
 ```
+
+---
 
 - [X] `52` **Conversões**
 
@@ -545,7 +553,9 @@ AnnotatedDouble ad = 15.3;
 AnnotatedDouble ad = "yes, it is a number";
 ```
 
-- [ ] `53` **Overload de operadores**
+---
+
+- [X] `53` **Overload de operadores**
 
 > Considera a classe `AnnotatedDouble` da questão anterior. Faz overload dos
 > seguintes operadores de modo a que realizem as operações indicadas:
@@ -593,4 +603,113 @@ public static AnnotatedDouble operator -(AnnotatedDouble ad)
         DoubleValue = -ad.DoubleValue,
         Annotation = new string(annotationArray) };
 }
+```
+
+---
+
+- [X] `54` **Overload de operadores**
+
+> Relativamente aos operadores implementados na alínea anterior, qual é o output
+> do seguinte código:
+>
+> ```c#
+> ad1 = new AnnotatedDouble() { DoubleValue = -4.2, Annotation = "Negative" };
+> ad2 = new AnnotatedDouble() { DoubleValue = 9.653, Annotation = "Highest" };
+> Console.WriteLine(ad1 + ad2);
+> Console.WriteLine(ad2 + ad1);
+> Console.WriteLine(ad1 - ad2);
+> Console.WriteLine(-ad2);
+> ```
+
+```md
+5.45 (NegativeHighest)
+5.45 (HighestNegative)
+-13.85 (Nav)
+-9.65 (tsehgiH)
+```
+
+---
+
+- [ ] `55` **Overload de operadores**
+
+> Indica o principal problema da sobre-utilização de overloading de operadores.
+
+```md
+Overloads, cuja função principal é tornar o código mais legível, quando
+sobre-utilizados em casos mais complexos e menos intuitivos, podem acabar por ter
+o efeito contrário, diminuindo a legibilidade do código.
+```
+
+---
+
+- [X] `57` **Indexadores**
+
+> Considera o seguinte tipo:
+>
+> ```c#
+> public struct Weird { }
+> ```
+>
+> 1. Implementa um indexador só de leitura no tipo Weird que aceite como índice
+> uma variável do tipo object e devolva uma string contendo o resultado da
+> invocação de ToString() na instância de object convertido em maiúsculas. Deves
+> usar notação Lambda para simplificar a resolução do problema.
+>
+> 2. Considera o seguinte código:
+>
+> ```c#
+>   Weird weirdVar;
+>   string str = weirdVar["Hello world!"];
+>   Console.WriteLine(str);
+> ```
+>
+> - O que vai ser impresso no ecrã?
+>
+> - Porque é que não foi preciso instanciar weirdVar antes de usarmos o indexador
+> (linha 2)? Teria sido necessário instanciar weirdVar se o tipo Weird fosse uma
+> classe?
+>
+> - Na sequência do código apresentado, o que seria impresso no ecrã pela seguinte
+> linha de código: Console.WriteLine(weirdVar[100]);
+
+- `57.1`
+
+```c#
+public string this[object index] => index.ToString().ToUpper();
+```
+
+- `57.2`
+
+```md
+Impresso no ecrã: HELLO WORLD!
+
+Não foi preciso instanciar weirdVar por ser uma struct, um tipo de valor, alocando
+a memória apenas quando a variável é utilizada. Se fosse uma classe, um tipo de
+referência, então a variável teria de ser instanciada com new para que pudesse
+ser guardada na heap.
+
+Seria impresso no ecrã: 100
+```
+
+---
+
+- [X] `62` **Singletons**
+
+> Descreve, por palavras tuas, três dos principais problemas no uso de singletons.
+> Qual é a principal vantagem no uso deste design pattern?
+
+```md
+Três desvantagens dos usos de singletons são:
+
+1. Viola o Single Responsibility Principle, adicionando à classe que o implemente
+a funcionalidade extra de se auto-inicializar.
+
+2. Viola o Least Knowledge Principle, por ser um ponto de acesso global a que
+todas as classes têm acesso, promovendo dependência entre as mesmas.
+
+3. Não é possível testar elementos isoladamente, visto que o singleton está
+sempre envolvido.
+
+A principal vantagem de usar o mesmo, é que ao contrario de classes static,
+pode implementar interfaces e ser estendido.
 ```
